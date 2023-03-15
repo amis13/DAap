@@ -1,4 +1,7 @@
 {
   "name": "fancy-undeads",
-  "packageManager": "yarn@3.4.1"
+  "packageManager": "yarn@3.4.1",
+  "devDependencies": {
+    "hardhat": "^2.13.0"
+  }
 }
