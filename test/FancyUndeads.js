@@ -56,7 +56,8 @@ describe("Fancy Undeads Contract", () => {
             const [, base64JSON] = stringifiedTokenURI.split(
                 "data:application/json;base64,"
             );
-            const stringifiedMetadata = await Buffer.from(base64JSON, "base64").toString("ascii");
+            const stringifiedMetadata = await Buffer.from(base64JSON, "base64"
+            ).toString("ascii");
 
             const metadata = JSON.parse(stringifiedMetadata);
 
