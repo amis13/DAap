@@ -229,7 +229,7 @@ contract FancyDNA {
         view
         returns (string memory)
     {
-        uint8 dnaSection = getDNASection(_dna, 0);
+        uint256 dnaSection = getDNASection(_dna, 0);
         return _accessoriesType[dnaSection % _accessoriesType.length];
     }
 
@@ -238,7 +238,7 @@ contract FancyDNA {
         view
         returns (string memory)
     {
-        uint8 dnaSection = getDNASection(_dna, 2);
+        uint256 dnaSection = getDNASection(_dna, 2);
         return _clotheColor[dnaSection % _clotheColor.length];
     }
 

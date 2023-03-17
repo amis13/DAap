@@ -1,6 +1,6 @@
 const { expect } = require("chai");
 
-describe('Fancy Undeads Contract', () => {
+describe("Fancy Undeads Contract", () => {
     const setup = async ({ maxSupply = 10000}) => {
     const [ owner ] = await ethers.getSigners();
     const FancyUndeads = await ethers.getContractFactory("FancyUndeads");
@@ -13,7 +13,7 @@ describe('Fancy Undeads Contract', () => {
     };
 
     describe('Deployment', () => {
-        it('Sets max supply to passed param', async () => {
+        it("Sets max supply to passed param", async () => {
             const maxSupply = 4000;
 
             const { deployed } = await setup({ maxSupply });
@@ -25,7 +25,7 @@ describe('Fancy Undeads Contract', () => {
 
 
     describe("Minting", () => {
-     it('Mints a new token and assings it to owner', async () => {
+     it("Mints a new token and assings it to owner", async () => {
             const { owner, deployed } = await setup({});
 
             await deployed.mint();
@@ -35,7 +35,7 @@ describe('Fancy Undeads Contract', () => {
             expect(ownerOfMinted).to.equal(owner.address);
      });
 
-     it('has a minting limit', async () => {
+     it("has a minting limit", async () => {
         const maxSupply = 2;
 
         const { deployed } = await setup ({ maxSupply });
@@ -48,11 +48,12 @@ describe('Fancy Undeads Contract', () => {
     describe("tokenURI", () => {
         it("returns valid metadata", async () => {
             const { deployed } = await setup({});
+
             await deployed.mint();
 
             const tokenURI = await deployed.tokenURI(0);
             const stringifiedTokenURI = await tokenURI.toString();
-            const [,base64JSON] = stringifiedTokenURI.split(
+            const [, base64JSON] = stringifiedTokenURI.split(
                 "data:application/json;base64,"
             );
             const stringifiedMetadata = await Buffer.from(base64JSON, "base64").toString("ascii");

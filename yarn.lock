@@ -2970,6 +2970,11 @@
   "resolved" "https://registry.npmjs.org/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz"
   "version" "5.0.1"
 
+"JSON@^1.0.0":
+  "integrity" "sha512-6RRYTno2eOUQGPZGboY1p860SC36j0AjiaxghkwuofYSTyD2+XE0Iq13US1by0NiuTEqLyZkXctuvkqFXvE9tA=="
+  "resolved" "https://registry.npmjs.org/JSON/-/JSON-1.0.0.tgz"
+  "version" "1.0.0"
+
 "jsonfile@^2.1.0":
   "integrity" "sha512-PKllAqbgLgxHaj8TElYymKCAgrASebJrWpTnEkOaTowt23VKXXN0sUeriJ+eh7y6ufb/CC5ap11pz71/cM0hUw=="
   "resolved" "https://registry.npmjs.org/jsonfile/-/jsonfile-2.4.0.tgz"
