@@ -1,23 +1,4 @@
 {
   "name": "fancy-undeads",
-  "packageManager": "yarn@3.4.1",
-  "devDependencies": {
-    "hardhat": "^2.13.0",
-    "node": "18.14.0",
-    "yarn": "^1.22.19"
-  },
-  "dependencies": {
-    "@chakra-ui/react": "^2.5.2",
-    "@emotion/react": "^11.10.6",
-    "@emotion/styled": "^11.10.6",
-    "@nomicfoundation/hardhat-toolbox": "^2.0.2",
-    "@openzeppelin/contracts": "^4.8.2",
-    "@web3-react/core": "^6.1.9",
-    "JSON": "^1.0.0",
-    "dotenv": "^16.0.3",
-    "framer-motion": "^10.6.0",
-    "react": "^18.2.0",
-    "react-router-dom": "^6.9.0",
-    "web3-react": "^5.0.5"
-  }
+  "packageManager": "yarn@3.4.1"
 }
