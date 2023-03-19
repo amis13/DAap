@@ -8,6 +8,6 @@ return (
   <Route path="/" exact element={<Home/>} />
   </Routes>
 );
-}
+};
 
 export default App;

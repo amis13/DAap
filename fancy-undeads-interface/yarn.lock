@@ -10740,13 +10740,13 @@ __metadata:
     "@web3-react/core": ^6.1.9
     framer-motion: ^10.6.0
     react: ^18.2.0
-    react-app: ^1.1.2
     react-dom: ^18.2.0
     react-router-dom: ^6.9.0
     react-scripts: 5.0.1
     web-vitals: ^2.1.4
     web3: ^1.8.2
     web3-react: ^5.0.5
+    webpack: ^5.76.2
   languageName: unknown
   linkType: soft
 
@@ -17377,15 +17377,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-app@npm:^1.1.2":
-  version: 1.1.2
-  resolution: "react-app@npm:1.1.2"
-  bin:
-    react-app: ./bin/react-app.js
-  checksum: 38106570973f035ad1f25e0027fc0b5ec19d71bf9a713d9a2ed14a25b0d44f880443dcbd1ed742d0f138f2bc7416617c70095e9cce005dc8d33abffd62ba1ca3
-  languageName: node
-  linkType: hard
-
 "react-clientside-effect@npm:^1.2.6":
   version: 1.2.6
   resolution: "react-clientside-effect@npm:1.2.6"
@@ -21372,7 +21363,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"webpack@npm:^5.64.4":
+"webpack@npm:^5.64.4, webpack@npm:^5.76.2":
   version: 5.76.2
   resolution: "webpack@npm:5.76.2"
   dependencies:
