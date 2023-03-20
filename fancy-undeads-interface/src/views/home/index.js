@@ -95,11 +95,11 @@ const Home = () => {
               zIndex: -1,
             }}
           >
-            Un Fancy Undead
+          Fancy Undead
           </Text>
           <br />
           <Text as={"span"} color={"green.400"}>
-            nunca para tradear.
+            the human collection.
           </Text>
         </Heading>
         <Text color={"gray.500"}>
@@ -131,7 +131,7 @@ const Home = () => {
           >
             Obtén tu Undead
           </Button>
-          <Link to="/punks">
+          <Link to="/undeads">
             <Button 
               rounded={"full"} 
               size={"lg"} 
