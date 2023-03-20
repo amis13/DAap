@@ -45,10 +45,19 @@ const getUndeadData = async ({ fancyUndeads, tokenId }) => {
     return {
         tokenId,
         attributes:{
-            accesoriesType , clotheColor, clotheType , 
-            eyeType, eyeBrowType, facialHairColor, 
-            facialHairType, hairColor, hatColor, 
-            graphicType, mouthType, skinColor, topType,
+            accesoriesType, 
+            clotheColor, 
+            clotheType, 
+            eyeType,
+            eyeBrowType, 
+            facialHairColor, 
+            facialHairType, 
+            hairColor, 
+            hatColor, 
+            graphicType,
+            mouthType, 
+            skinColor, 
+            topType
         },
         tokenURI,
         dna,
@@ -71,15 +80,15 @@ const useUndeadsData = () => {
             let tokenIds;
 
             const totalSupply = await fancyUndeads.methods.totalSupply.call();
-            tokenIds = new Array(Number(totalSupply).fill().map((_, index) => index));
+            tokenIds = new Array(Number(totalSupply)).fill().map((_, index) => index);
 
             const undeadsPromise = tokenIds.map((tokenId) =>
-            getUndeadData({ tokenId, fancyUndeads}));
+            getUndeadData({ tokenId, fancyUndeads})
+            );
 
             const undeads = await Promise.all(undeadsPromise);
 
             setUndeads(undeads);
-
             setLoading(false);
         }
 
