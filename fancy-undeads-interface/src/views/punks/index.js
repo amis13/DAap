@@ -1,13 +1,14 @@
 import { useWeb3React } from "@web3-react/core";
-import { Grid } from '@chakra-ui/react'
+import { Grid } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import PunkCard from "../../components/punk-card";
 import Loading from "../../components/loading";
 import RequestAccess from "../../components/request-access";
-import { useUndeadsData } from "../../hooks/useUndeadsData";
+import { usePlatziPunksData } from "../../hooks/usePlatziPunksData";
 
-const Undeads = () => {
+const Punks = () => {
   const { active } = useWeb3React();
-  const { undeads, loading } = useUndeadsData();
+  const { punks, loading } = usePlatziPunksData();
 
   if (!active) return <RequestAccess />;
 
@@ -17,8 +18,10 @@ const Undeads = () => {
         <Loading />
       ) : (
         <Grid templateColumns="repeat(auto-fill, minmax(250px, 1fr))" gap={6}>
-          {undeads.map(({ name, image, tokenId }) => (
-            <PunkCard key={tokenId} image={image} name={name} />
+          {punks.map(({ name, image, tokenId }) => (
+            <Link key={tokenId} to={`/punks/${tokenId}`}>
+              <PunkCard image={image} name={name} />
+            </Link>
           ))}
         </Grid>
       )}
@@ -26,4 +29,4 @@ const Undeads = () => {
   );
 };
 
-export default Undeads;
+export default Punks;

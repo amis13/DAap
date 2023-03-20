@@ -6,67 +6,67 @@ import {
   Button,
   Image,
   Badge,
-  useToast
+  useToast,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { useWeb3React } from "@web3-react/core";
-import useFancyUndeads from "../../hooks/useFancyUndeads";
+import usePlatziPunks from "../../hooks/usePlatziPunks";
 import { useCallback, useEffect, useState } from "react";
 
 const Home = () => {
-  const [ isMinting, setIsMinting ] = useState(false);
+  const [isMinting, setIsMinting] = useState(false);
   const [imageSrc, setImageSrc] = useState("");
   const { active, account } = useWeb3React();
-  const fancyUndeads = useFancyUndeads();
+  const platziPunks = usePlatziPunks();
   const toast = useToast();
 
-  const getFancyUndeadData = useCallback(async () => {
-    if (fancyUndeads) {
-      const totalSupply = await fancyUndeads.methods.totalSupply().call();
-      const dnaPreview = await fancyUndeads.methods
+  const getPlatziPunksData = useCallback(async () => {
+    if (platziPunks) {
+      const totalSupply = await platziPunks.methods.totalSupply().call();
+      const dnaPreview = await platziPunks.methods
         .deterministicPseudoRandomDNA(totalSupply, account)
         .call();
-      const image = await fancyUndeads.methods.imageByDNA(dnaPreview).call();
+      const image = await platziPunks.methods.imageByDNA(dnaPreview).call();
       setImageSrc(image);
     }
-  }, [fancyUndeads, account]);
+  }, [platziPunks, account]);
 
   useEffect(() => {
-    getFancyUndeadData();
-  }, [getFancyUndeadData]);
+    getPlatziPunksData();
+  }, [getPlatziPunksData]);
 
   const mint = () => {
     setIsMinting(true);
 
-    fancyUndeads.methods.mint().send({
-      from: account,
-    })
-    .on('transactionHash', (txHash) => {
-      toast({
-        title: 'Transaccion enviada',
-        description: txHash,
-        status: 'info'
+    platziPunks.methods
+      .mint()
+      .send({
+        from: account,
+      })
+      .on("transactionHash", (txHash) => {
+        toast({
+          title: "Transacción enviada",
+          description: txHash,
+          status: "info",
+        });
+      })
+      .on("receipt", () => {
+        setIsMinting(false);
+        toast({
+          title: "Transacción confirmada",
+          description: "Nunca pares de aprender.",
+          status: "success",
+        });
+      })
+      .on("error", (error) => {
+        setIsMinting(false);
+        toast({
+          title: "Transacción fallida",
+          description: error.message,
+          status: "error",
+        });
       });
-    })
-    .on('receipt', () => {
-      setIsMinting(false);
-      toast({
-        title: 'Transaccion confirmada',
-        description: 'GG UNDEAD',
-        status: 'success'
-      });
-    })
-    .on('error', (error) => {
-      setIsMinting(false);
-      toast({
-        title: 'Transaccion erronea',
-        description: error.message,
-        status: 'error',
-      });
-    })
-
-    setIsMinting(false);
-  }
+  };
 
   return (
     <Stack
@@ -95,21 +95,21 @@ const Home = () => {
               zIndex: -1,
             }}
           >
-          Fancy Undead
+            Un Platzi Punk
           </Text>
           <br />
           <Text as={"span"} color={"green.400"}>
-            the human collection.
+            nunca para de aprender
           </Text>
         </Heading>
         <Text color={"gray.500"}>
-          Fancy Undeads es una colección de Avatares randomizados cuya metadata
+          Platzi Punks es una colección de Avatares randomizados cuya metadata
           es almacenada on-chain. Poseen características únicas y sólo hay 10000
           en existencia.
         </Text>
         <Text color={"green.500"}>
-          Cada Fancy Undead se genera de forma secuencial basado en tu address,
-          usa el previsualizador para averiguar cuál sería tu Fancy Undead si
+          Cada Platzi Punk se genera de forma secuencial basado en tu address,
+          usa el previsualizador para averiguar cuál sería tu Platzi Punk si
           minteas en este momento
         </Text>
         <Stack
@@ -124,19 +124,14 @@ const Home = () => {
             colorScheme={"green"}
             bg={"green.400"}
             _hover={{ bg: "green.500" }}
-            disabled={!fancyUndeads}
+            disabled={!platziPunks}
             onClick={mint}
             isLoading={isMinting}
-
           >
-            Obtén tu Undead
+            Obtén tu punk
           </Button>
-          <Link to="/undeads">
-            <Button 
-              rounded={"full"} 
-              size={"lg"} 
-              fontWeight={"normal"} 
-              px={6}>
+          <Link to="/punks">
+            <Button rounded={"full"} size={"lg"} fontWeight={"normal"} px={6}>
               Galería
             </Button>
           </Link>
@@ -168,7 +163,7 @@ const Home = () => {
               </Badge>
             </Flex>
             <Button
-              onClick={getFancyUndeadData}
+              onClick={getPlatziPunksData}
               mt={4}
               size="xs"
               colorScheme="green"
@@ -177,7 +172,7 @@ const Home = () => {
             </Button>
           </>
         ) : (
-          <Badge mt={2}>Wallet desconectada</Badge>
+          <Badge mt={2}>Wallet desconectado</Badge>
         )}
       </Flex>
     </Stack>
