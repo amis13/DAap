@@ -20,8 +20,8 @@ import {
       to: "/",
     },
     {
-      name: "Punks",
-      to: "/punks",
+      name: "Undeads",
+      to: "/undeads",
     },
   ];
   
