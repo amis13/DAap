@@ -9,7 +9,7 @@ function App() {
       <MainLayout>
         <Routes>
           <Route path="/" exact element={<Home/>} />
-          <Route path="/undeads" exact element={Undeads} />
+          <Route path="/undeads" exact element={<Undeads/>} />
         </Routes>
      </MainLayout>
   );

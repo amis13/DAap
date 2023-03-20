@@ -23,7 +23,7 @@ const getUndeadData = async ({ fancyUndeads, tokenId }) => {
         fancyUndeads.methods.tokenURI(tokenId).call(),
         fancyUndeads.methods.tokenDNA(tokenId).call(),
         fancyUndeads.methods.ownerOf(tokenId).call(),
-        fancyUndeads.method.getAccessoriesType(tokenId).call(),
+        fancyUndeads.methods.getAccessoriesType(tokenId).call(),
         fancyUndeads.methods.getAccessoriesType(tokenId).call(),
         fancyUndeads.methods.getClotheColor(tokenId).call(),
         fancyUndeads.methods.getClotheType(tokenId).call(),

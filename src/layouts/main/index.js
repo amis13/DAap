@@ -17,11 +17,11 @@ import {
   const Links = [
     {
       name: "Home",
-      to: "/",
+      to: "/"
     },
     {
       name: "Undeads",
-      to: "/undeads",
+      to: "/undeads"
     },
   ];
   
@@ -59,7 +59,7 @@ import {
             <HStack spacing={8} alignItems={"center"}>
               <Flex alignItems="center">
                 <Image src="XIII13.png" width="80px" />
-                <Heading size="md" color="purple" mt={0.2} ml={1}>
+                <Heading size="md" color="green" mt={0.2} ml={1}>
                   Fancy Death
                 </Heading>
               </Flex>
