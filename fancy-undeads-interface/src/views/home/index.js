@@ -6,6 +6,7 @@ import {
   Button,
   Image,
   Badge,
+  useToast
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { useWeb3React } from "@web3-react/core";
@@ -13,9 +14,11 @@ import useFancyUndeads from "../../hooks/useFancyUndeads";
 import { useCallback, useEffect, useState } from "react";
 
 const Home = () => {
+  const [ isMinting, setIsMinting ] = useState(false);
   const [imageSrc, setImageSrc] = useState("");
   const { active, account } = useWeb3React();
   const fancyUndeads = useFancyUndeads();
+  const toast = useToast();
 
   const getFancyUndeadData = useCallback(async () => {
     if (fancyUndeads) {
@@ -33,7 +36,36 @@ const Home = () => {
   }, [getFancyUndeadData]);
 
   const mint = () => {
+    setIsMinting(true);
 
+    fancyUndeads.methods.mint().send({
+      from: account,
+    })
+    .on('transactionHash', (txHash) => {
+      toast({
+        title: 'Transaccion enviada',
+        description: txHash,
+        status: 'info'
+      });
+    })
+    .on('receipt', () => {
+      setIsMinting(false);
+      toast({
+        title: 'Transaccion confirmada',
+        description: 'GG UNDEAD',
+        status: 'success'
+      });
+    })
+    .on('error', (error) => {
+      setIsMinting(false);
+      toast({
+        title: 'Transaccion erronea',
+        description: error.message,
+        status: 'error',
+      });
+    })
+
+    setIsMinting(false);
   }
 
   return (
@@ -93,6 +125,9 @@ const Home = () => {
             bg={"green.400"}
             _hover={{ bg: "green.500" }}
             disabled={!fancyUndeads}
+            onClick={mint}
+            isLoading={isMinting}
+
           >
             Obtén tu Undead
           </Button>
@@ -101,8 +136,7 @@ const Home = () => {
               rounded={"full"} 
               size={"lg"} 
               fontWeight={"normal"} 
-              px={6}
-              onClick={mint}>
+              px={6}>
               Galería
             </Button>
           </Link>
