@@ -32,6 +32,10 @@ const Home = () => {
     getFancyUndeadData();
   }, [getFancyUndeadData]);
 
+  const mint = () => {
+
+  }
+
   return (
     <Stack
       align={"center"}
@@ -63,7 +67,7 @@ const Home = () => {
           </Text>
           <br />
           <Text as={"span"} color={"green.400"}>
-            nunca para de aprender
+            nunca para tradear.
           </Text>
         </Heading>
         <Text color={"gray.500"}>
@@ -90,10 +94,15 @@ const Home = () => {
             _hover={{ bg: "green.500" }}
             disabled={!fancyUndeads}
           >
-            Obtén tu punk
+            Obtén tu Undead
           </Button>
           <Link to="/punks">
-            <Button rounded={"full"} size={"lg"} fontWeight={"normal"} px={6}>
+            <Button 
+              rounded={"full"} 
+              size={"lg"} 
+              fontWeight={"normal"} 
+              px={6}
+              onClick={mint}>
               Galería
             </Button>
           </Link>
@@ -125,7 +134,7 @@ const Home = () => {
               </Badge>
             </Flex>
             <Button
-              onClick={getfancyUndeadsData}
+              onClick={getFancyUndeadData}
               mt={4}
               size="xs"
               colorScheme="green"
@@ -134,7 +143,7 @@ const Home = () => {
             </Button>
           </>
         ) : (
-          <Badge mt={2}>Wallet desconectado</Badge>
+          <Badge mt={2}>Wallet desconectada</Badge>
         )}
       </Flex>
     </Stack>
