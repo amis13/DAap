@@ -14896,14 +14896,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mini-css-extract-plugin@npm:^2.4.5":
-  version: 2.7.5
-  resolution: "mini-css-extract-plugin@npm:2.7.5"
+"mini-css-extract-plugin@npm:2.4.5":
+  version: 2.4.5
+  resolution: "mini-css-extract-plugin@npm:2.4.5"
   dependencies:
     schema-utils: ^4.0.0
   peerDependencies:
     webpack: ^5.0.0
-  checksum: afc37cdfb765e8826a1babbab3cd8a99ffc4eaeabb6c013a6b3c80801e44ebc37d930b98c6f66168bb8cd545fcb2e8fc2630d72b4501a1bb8add1547c2534a53
+  checksum: 09ad56ac33fd960c6a645a2a18b0fee22c34c8e48e91fc48acc5ac3b9c101a5e9ea50d168b94c9fcdf571265271f6e4dd4fea835b2242907d4311b170aff322f
   languageName: node
   linkType: hard
 
@@ -16159,10 +16159,11 @@ __metadata:
     os-browserify: ^0.3.0
     process: ^0.11.10
     react: ^18.2.0
+    react-app: ^1.1.2
     react-app-rewired: ^2.2.1
     react-dom: ^18.2.0
     react-router-dom: ^6.9.0
-    react-scripts: 5.0.1
+    react-scripts: ^5.0.1
     stream-browserify: ^3.0.0
     stream-http: ^3.2.0
     url: ^0.11.0
@@ -17510,6 +17511,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-app@npm:^1.1.2":
+  version: 1.1.2
+  resolution: "react-app@npm:1.1.2"
+  bin:
+    react-app: ./bin/react-app.js
+  checksum: 38106570973f035ad1f25e0027fc0b5ec19d71bf9a713d9a2ed14a25b0d44f880443dcbd1ed742d0f138f2bc7416617c70095e9cce005dc8d33abffd62ba1ca3
+  languageName: node
+  linkType: hard
+
 "react-clientside-effect@npm:^1.2.6":
   version: 1.2.6
   resolution: "react-clientside-effect@npm:1.2.6"
@@ -17686,7 +17696,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-scripts@npm:5.0.1":
+"react-scripts@npm:^5.0.1":
   version: 5.0.1
   resolution: "react-scripts@npm:5.0.1"
   dependencies:
