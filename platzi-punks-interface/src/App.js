@@ -7,10 +7,10 @@ function App() {
   return (
     
       <MainLayout>
-      <Routes>
-       <Route path="/" exact element={<Home/>} />
-       <Route path="/punks" exact component={<Punks/>} />
-      </Routes>
+        <Routes>
+          <Route path="/" exact element={<Home/>} />
+          <Route path="/punks" exact component={Punks} />
+        </Routes>
      </MainLayout>
   );
 }
