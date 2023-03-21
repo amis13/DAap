@@ -16,7 +16,7 @@ import Loading from "../../components/loading";
 import RequestAccess from "../../components/request-access";
 import { usePlatziPunksData } from "../../hooks/usePlatziPunksData";
 import { useState } from "react";
-import { useHistory, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Punks = () => {
   const { search } = useLocation();
@@ -25,7 +25,7 @@ const Punks = () => {
   );
   const [submitted, setSubmitted] = useState(true);
   const [validAddress, setValidAddress] = useState(true);
-  const { push } = useHistory();
+  const navigate = useNavigate();
   const { active, library } = useWeb3React();
   const { punks, loading } = usePlatziPunksData({
     owner: submitted && validAddress ? address : null,
@@ -44,9 +44,9 @@ const Punks = () => {
       const isValid = library.utils.isAddress(address);
       setValidAddress(isValid);
       setSubmitted(true);
-      if (isValid) push(`/punks?address=${address}`);
+      if (isValid) navigate(`/punks?address=${address}`);
     } else {
-      push("/punks");
+      navigate("/punks");
     }
   };
 
